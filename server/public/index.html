@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>React FTW!</title>
+  <title>Wine Me Up</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+
 </head>
-<body>
+
+<body class=background>
   <div id="app"></div>
 
   <script src="/bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
+  <script>
+    $('.smooth').on('click', function () {
+      $.smoothScroll({
+        scrollElement: $('body'),
+        scrollTarget: '#' + this.id
+      });
+
+      return false;
+    });
+  </script>
 </body>
-</html>
+
+</html> 
