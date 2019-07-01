@@ -1,26 +1,13 @@
 import React from 'react'
-
+import { Redirect } from 'react-router-dom'
 import { getWine } from '../api'
 
 export default class Home extends React.Component {
+
     state = {
         food: '',
-        wines: null
-    }
-
-    capitalise = (word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-    }
-
-    capitaliseArray = (arr) => {
-        let transformed = arr.map(word => this.capitalise(word))
-        return transformed.join(' ')
-    }
-
-    removeLastSentence = (string) => {
-        let splitString = string.split('. ')
-        splitString.pop()
-        return splitString.join('. ')
+        wines: null,
+        redirect: ''
     }
 
     handleChange = (event) => {
@@ -30,37 +17,30 @@ export default class Home extends React.Component {
     handleSubmit = () => {
         getWine(this.state.food)
             .then(wines => this.setState({wines}))
+            .then(() => this.setState({redirect: 'wine'}))
     }
+
+    handleClick = () => this.setState({redirect: 'food'})
+
+    renderRedirect = () => {
+        if (this.state.redirect === 'wine') {
+          return <Redirect to={{pathname: '/wines', state: this.state}} />
+        } else if (this.state.redirect === 'food') {
+            return <Redirect to='/pairWine' />
+        }
+      }
 
     render() {
         return (
-        <>
             <div>
+                {this.renderRedirect()}
                 What's on your menu?
                 <input type="text" value={this.state.food} onChange={this.handleChange} />
                 <button onClick={this.handleSubmit}>Wine Me Up</button>
+                <button onClick={this.handleClick}>Click here to find a dish for your wine!</button>
             </div>
 
-            {this.state.wines && (
-                <>
-                <div>
-                    <ol>
-                        {this.state.wines.pairedWines.map(x => <li key={x}>{this.capitaliseArray(x.split(' '))}</li>)}
-                    </ol>
-                </div>
+        )
+    }
 
-                <div>
-                    <p>{this.removeLastSentence(this.state.wines.pairingText) + '.'}</p>
-                </div>
-
-                <div>
-                    <h2>Our Recommendation</h2>
-                    <h3>{this.state.wines.productMatches[0].title}</h3>
-                    <img src={this.state.wines.productMatches[0].imageUrl}/>
-                    <p>{this.state.wines.productMatches[0].description}</p>
-                </div>
-                </>
-            )}
-        </>
-    )}
 }
