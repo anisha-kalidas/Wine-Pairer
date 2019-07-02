@@ -5,6 +5,7 @@ import Home from './Home'
 import GetDishes from './GetDishes'
 import GetWines from './GetWines'
 import WineQuestion from './WineQuestion'
+import GetWine from './GetWine'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/pairWine" component={WineQuestion} />
       <Route path="/wines" component={GetWines} />
       <Route path="/dishes" component={GetDishes}/>
+      <Route path="/getWine" component={GetWine} />
     </>
   )
 }
