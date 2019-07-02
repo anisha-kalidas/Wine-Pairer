@@ -1,9 +1,112 @@
-.background {
-  /* background-image: url('./images/cork-color.jpg'); */
+.body {
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 h1 {
   font-family: 'Cinzel', serif;
-  /* color: white; */
   font-size: 50px;
+}
+
+.landing {
+  background-image: url('./images/cork-color.jpg');
+  width: 100%;
+  height: 807px;
+  margin: 0;
+  padding: 0;
+}
+
+#card-a {
+  color: white;
+  border: #67192bba solid 7px;
+  border-radius: 60px / 60px;  
+  text-align: center;
+  background-color: #330d14ba;
+  width: 50%;
+  position: relative;
+  top: 80px;
+  left: 360px;
+}
+
+#card-b {
+  color: white;
+  border: #67192bba solid 7px;
+  border-radius: 60px / 60px;  
+  text-align: center;
+  background-color: #330d14ba;
+  width: 50%;
+  position: relative;
+  top: 200px;
+  left: 360px;
+}
+
+#or {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 10px;
+  position: relative;
+  top: 140px;
+  background-color: #501422;
+}
+
+.slide {
+  height: 450px;
+}
+
+.inner {
+  border: solid #333333 2px;
+  margin-left: 140px;
+  margin-right: 140px;
+  padding: 30px;
+  height: 270px;
+  width: 600px;
+}
+
+.container {
+  display: flex;
+}
+
+.carousel-title {
+  text-align: center
+}
+
+.text {
+  text-align: center;
+}
+
+.description {
+  padding-left: 10px;
+  padding-right: 10px;
+  width:400px;
+}
+
+.input {
+  height: 30px;
+  width: 40%;
+  margin: 10px;
+  border-radius: 20px / 15px;
+  padding: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:active {
+  transform: translateY(1px) translateX(5px);
+}
+
+button:focus {
+  outline: none;
+}
+
+.go {
+  color: white;
+  height: 34px;
+  width: 23%;
+  margin: 10px;
+  border-radius: 10px / 15px;
+  background-color: #bd9356;
+  border: 2px solid white;
 }

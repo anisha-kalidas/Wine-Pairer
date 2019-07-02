@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import Carousel from 'nuka-carousel'
 
 import { getDish, getRec } from '../api'
 
@@ -29,16 +30,16 @@ export default class getDishes extends React.Component {
             .then(dishes => this.setState({ wine: '', dishes }))
     }
 
-    handleClick = () => {
+    componentDidMount = () => {
         getRec(this.state.wine)
             .then(options => this.setState({ options }))
     }
 
-    handleHome = () => this.setState({redirect: 'home'})
+    handleHome = () => this.setState({ redirect: 'home' })
 
     renderRedirect = () => {
         return this.state.redirect && (
-            <Redirect to='/pairWine' />
+            <Redirect to='/' />
         )
     }
 
@@ -46,7 +47,7 @@ export default class getDishes extends React.Component {
         const { wine, dishes, options } = this.state
         return (
             <>
-            {this.renderRedirect()}
+                {this.renderRedirect()}
                 <>
                     <div>
                         <h2>{this.capitaliseArray(wine.split(' '))}</h2>
@@ -59,34 +60,52 @@ export default class getDishes extends React.Component {
                             {dishes.pairings.map(x => <li key={x}>{this.capitaliseArray(x.split(' '))}</li>)}
                         </ol>
                     </div>
-
-                    <div>
-                        <button onClick={this.handleClick}>Our Recommendations</button>
-                    </div>
                 </>
-    
-            {options && (
+
+                {options && (
+
                     <>
                         <div>
-                            <h2>Our top picks for {this.capitalise(wine)}</h2>
+                            <h2 className='carousel-title'>Our Top Picks for {this.capitalise(wine)}</h2>
                         </div>
-                        <div>
-                            <h3>{options.recommendedWines[0].title}</h3>
-                            <p>{options.recommendedWines[0].description}</p>
-                            <img src={options.recommendedWines[0].imageUrl} />
-                        </div>
-                        <div>
-                            <h3>{options.recommendedWines[1].title}</h3>
-                            <p>{options.recommendedWines[1].description}</p>
-                            <img src={options.recommendedWines[1].imageUrl} />
-                        </div>
-                        <div>
-                            <h3>{options.recommendedWines[2].title}</h3>
-                            <p>{options.recommendedWines[2].description}</p>
-                            <img src={options.recommendedWines[2].imageUrl} />
-                        </div>
-
-
+                        <Carousel wrapAround={true}>
+                            <div className='slide'>
+                                <br/><br/>
+                                <div className='inner container'>
+                                    <div>
+                                    <h3 className='text'>{options.recommendedWines[0].title}</h3>
+                                    <p className='description'>{options.recommendedWines[0].description}</p>
+                                    </div>
+                                    <div>
+                                    <img src={options.recommendedWines[0].imageUrl} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='slide'>
+                            <br/><br/>
+                                <div className='inner container'>
+                                    <div>
+                                    <h3 className='text'>{options.recommendedWines[1].title}</h3>
+                                    <p className='description'>{options.recommendedWines[1].description}</p>
+                                    </div>
+                                    <div>
+                                    <img src={options.recommendedWines[1].imageUrl} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='slide'>
+                            <br/><br/>
+                                <div className='inner container'>
+                                    <div>
+                                        <h3 className='text'>{options.recommendedWines[2].title}</h3>
+                                        <p className='description'>{options.recommendedWines[2].description}</p>
+                                    </div>
+                                    <div>
+                                        <img src={options.recommendedWines[2].imageUrl} />
+                                    </div>
+                                </div>
+                            </div>
+                        </Carousel>
                     </>
                 )}
                 <button onClick={this.handleHome}>Match another wine!</button>

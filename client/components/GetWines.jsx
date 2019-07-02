@@ -52,14 +52,14 @@ export default class Home extends React.Component {
                 {this.state.wines && (
                     <>
                         <div>
-                            <h2>Your wine matches for {this.capitalise(this.state.food)}</h2>
+                            <h2>Your Wine Matches for {this.capitalise(this.state.food)}</h2>
                             <ol>
                                 {this.state.wines.pairedWines.map(wine => {
                                     return <li key={wine}>
-                                            <a href='localhost:3000/wines' onClick={this.handleLink} id={wine}>
-                                                {this.capitaliseArray(wine.split(' '))}
-                                            </a>
-                                           </li>
+                                        <a href='localhost:3000/wines' onClick={this.handleLink} id={wine}>
+                                            {this.capitaliseArray(wine.split(' '))}
+                                        </a>
+                                    </li>
                                 })
                                 }
                             </ol>
@@ -68,12 +68,20 @@ export default class Home extends React.Component {
                         <div>
                             <p>{this.removeLastSentence(this.state.wines.pairingText) + '.'}</p>
                         </div>
-
+                                <br/><br/><br/>
                         <div>
-                            <h2>Our Recommendation</h2>
-                            <h3>{this.state.wines.productMatches[0].title}</h3>
-                            <img src={this.state.wines.productMatches[0].imageUrl} />
-                            <p>{this.state.wines.productMatches[0].description}</p>
+                            <div>
+                                <h2 className='carousel-title'>Our Recommendation</h2>
+                            </div>
+                            <div className='inner container'>
+                                <div>
+                                    <h3>{this.state.wines.productMatches[0].title}</h3>
+                                    <p>{this.state.wines.productMatches[0].description}</p>
+                                </div>
+                                <div>
+                                    <img src={this.state.wines.productMatches[0].imageUrl} />
+                                </div>
+                            </div>
                         </div>
                         <br /><br /><br />
                         <button onClick={this.handleClick}>Get another match!</button>

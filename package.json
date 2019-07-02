@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "nuka-carousel": "^4.5.8",
     "react-router-dom": "^5.0.1",
     "superagent": "^5.0.2"
   },
