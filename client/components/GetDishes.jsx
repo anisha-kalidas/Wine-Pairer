@@ -32,14 +32,24 @@ export default class getDishes extends React.Component {
 
     componentDidMount = () => {
         getRec(this.state.wine)
-            .then(options => this.setState({ options }))
+            .then(options => {
+                if (options.totalFound !== 0) {
+                   return this.setState({ options })
+                }
+            })
     }
 
     handleHome = () => this.setState({ redirect: 'home' })
 
+    firstThreeSentences = string => {
+        let splitString = string.split('.')
+        let newString = [splitString[0], splitString[1]]
+        return newString.join('.')
+    }
+
     renderRedirect = () => {
         return this.state.redirect && (
-            <Redirect to='/' />
+            <Redirect to='/wineHome' />
         )
     }
 
@@ -49,66 +59,82 @@ export default class getDishes extends React.Component {
             <>
                 {this.renderRedirect()}
                 <>
-                    <div>
-                        <h2>{this.capitaliseArray(wine.split(' '))}</h2>
-                        <p>{dishes.text}</p>
-                    </div>
+                    <div className='body result'>
+                        <div>
+                            <h2>{this.capitaliseArray(wine.split(' '))}</h2>
+                        </div>
+                        <div className='container'>
+                            <div className='wine-left'>
+                                <ol>
+                                    <li key={'a'}>{this.capitaliseArray(dishes.pairings[0].split(' '))}</li>
+                                    <li key={'b'}>{this.capitaliseArray(dishes.pairings[1].split(' '))}</li>
+                                    <li key={'c'}>{this.capitaliseArray(dishes.pairings[2].split(' '))}</li>
+                                    <li key={'d'}>{this.capitaliseArray(dishes.pairings[3].split(' '))}</li>                                    
+                                </ol>
+                            </div>
+                            <div className='wine-right'>
+                                <br/><br/>
+                                <p>{dishes.text}</p>
+                            </div>
+                        </div>
 
-                    <div>
-                        <p>The dishes that work well with {this.capitaliseArray(wine.split(' '))} are:</p>
-                        <ol>
-                            {dishes.pairings.map(x => <li key={x}>{this.capitaliseArray(x.split(' '))}</li>)}
-                        </ol>
+                        {options && (
+                            <>
+                                <div>
+                                    <h2 className='carousel-title'>Our Top Picks for {this.capitalise(wine)}</h2>
+                                </div>
+                                <Carousel wrapAround={true}>
+                                    <div className='slide'>
+                                        <div className='inner-slide'>
+                                            <div>
+                                                <h3 className='text'>{options.recommendedWines[0].title}</h3>
+                                                </div>
+                                                <div className='container'>
+                                                <div className='left-rec'>
+                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[0].description)}.</p>
+                                            </div>
+                                            <div className='right-rec'>
+                                                <img className='thumb' src={options.recommendedWines[0].imageUrl} />
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='slide'>
+                                        <div className='inner-slide'>
+                                            <div>
+                                                <h3 className='text'>{options.recommendedWines[1].title}</h3>
+                                                </div>
+                                                <div className='container'>
+                                                <div className='left-rec'>
+                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[1].description)}.</p>
+                                            </div>
+                                            <div className='right-rec'>
+                                                <img className='thumb' src={options.recommendedWines[1].imageUrl} />
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='slide'>
+                                        <div className='inner-slide'>
+                                            <div>
+                                                <h3 className='text'>{options.recommendedWines[2].title}</h3>
+                                                </div>
+                                                <div className='container'>
+                                                <div className='left-rec'>
+                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[2].description)}.</p>
+                                            </div>
+                                            <div className='right-rec'>
+                                                <img className='thumb' src={options.recommendedWines[2].imageUrl} />
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Carousel>
+                            </>
+                        )}
+                        <button className='go nav' onClick={this.handleHome}>Get Another Match</button>
                     </div>
                 </>
-
-                {options && (
-
-                    <>
-                        <div>
-                            <h2 className='carousel-title'>Our Top Picks for {this.capitalise(wine)}</h2>
-                        </div>
-                        <Carousel wrapAround={true}>
-                            <div className='slide'>
-                                <br/><br/>
-                                <div className='inner container'>
-                                    <div>
-                                    <h3 className='text'>{options.recommendedWines[0].title}</h3>
-                                    <p className='description'>{options.recommendedWines[0].description}</p>
-                                    </div>
-                                    <div>
-                                    <img src={options.recommendedWines[0].imageUrl} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='slide'>
-                            <br/><br/>
-                                <div className='inner container'>
-                                    <div>
-                                    <h3 className='text'>{options.recommendedWines[1].title}</h3>
-                                    <p className='description'>{options.recommendedWines[1].description}</p>
-                                    </div>
-                                    <div>
-                                    <img src={options.recommendedWines[1].imageUrl} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='slide'>
-                            <br/><br/>
-                                <div className='inner container'>
-                                    <div>
-                                        <h3 className='text'>{options.recommendedWines[2].title}</h3>
-                                        <p className='description'>{options.recommendedWines[2].description}</p>
-                                    </div>
-                                    <div>
-                                        <img src={options.recommendedWines[2].imageUrl} />
-                                    </div>
-                                </div>
-                            </div>
-                        </Carousel>
-                    </>
-                )}
-                <button onClick={this.handleHome}>Match another wine!</button>
             </>
         )
     }

@@ -19,6 +19,12 @@ export default class getWine extends React.Component {
         this.setState({ redirect: true })
     }
 
+    firstThreeSentences = string => {
+        let splitString = string.split('.')
+        let newString = [splitString[0], splitString[1], splitString[2]]
+        return newString.join('.')
+    }
+
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to={{ pathname: '/wines', state: { food: this.state.food, wines: this.state.wines } }} />
@@ -32,50 +38,64 @@ export default class getWine extends React.Component {
                 {this.renderRedirect()}
                 {options && (
                     <>
-                        <div>
-                            <h2>Our top picks for {this.capitalise(wine)}</h2>
+                        <div className='body result'>
+                            <div>
+                                <h2>Our top picks for {this.capitalise(wine)}</h2>
+                            </div>
+                            <Carousel wrapAround={true}>
+                                <div className='slide-large'>
+                                    <br /><br />
+                                    <div className='inner-slide-large'>
+                                        <div>
+                                            <h3>{options.recommendedWines[0].title}</h3>
+                                        </div>
+                                        <div className='container'>
+                                            <div className='picks-left'>
+                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[0].description)}.</p>
+                                            </div>
+                                            <div className='picks-right'>
+                                                <img src={options.recommendedWines[0].imageUrl} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='slide-large'>
+                                    <br /><br />
+                                    <div className='inner-slide-large'>
+                                        <div>
+                                            <h3>{options.recommendedWines[1].title}</h3>
+                                        </div>
+                                        <div className='container'>
+                                            <div className='picks-left'>
+                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[1].description)}.</p>
+                                            </div>
+                                            <div className='picks-right'>
+                                                <img src={options.recommendedWines[1].imageUrl} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='slide-large'>
+                                    <br /><br />
+                                    <div className='inner-slide-large'>
+                                        <div>
+                                            <h3>{options.recommendedWines[2].title}</h3>
+                                        </div>
+                                        <div className='container'>
+                                            <div className='picks-left'>
+                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[2].description)}.</p>
+                                            </div>
+                                            <div className='picks-right'>
+                                                <img src={options.recommendedWines[2].imageUrl} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Carousel>
                         </div>
-                        <Carousel wrapAround={true}>
-                            <div className='slide'>
-                                <br /><br />
-                                <div className='inner container'>
-                                    <div>
-                                        <h3>{options.recommendedWines[0].title}</h3>
-                                        <p>{options.recommendedWines[0].description}</p>
-                                    </div>
-                                    <div>
-                                        <img src={options.recommendedWines[0].imageUrl} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='slide'>
-                                <br /><br />
-                                <div className='inner container'>
-                                    <div>
-                                        <h3>{options.recommendedWines[1].title}</h3>
-                                        <p>{options.recommendedWines[1].description}</p>
-                                    </div>
-                                    <div>
-                                        <img src={options.recommendedWines[1].imageUrl} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='slide'>
-                                <br /><br />
-                                <div className='inner container'>
-                                    <div>
-                                        <h3>{options.recommendedWines[2].title}</h3>
-                                        <p>{options.recommendedWines[2].description}</p>
-                                    </div>
-                                    <div>
-                                        <img src={options.recommendedWines[2].imageUrl} />
-                                    </div>
-                                </div>
-                            </div>
-                        </Carousel> 
                     </>
                 )}
-                <button onClick={this.handleClick}>Back</button>
+                <button className='go back' onClick={this.handleClick}>Back</button>
             </>
         )
     }

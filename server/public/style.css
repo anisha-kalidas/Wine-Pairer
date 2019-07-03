@@ -3,20 +3,62 @@
   margin-right: 250px;
 }
 
-h1 {
+body {
+  background-image: url('./images/cork-mono.jpg');
+  background-size: cover;
   font-family: 'Cinzel', serif;
+  font-weight: 300;
+}
+
+h1 {
   font-size: 50px;
+}
+
+h2 {
+  font-size: 35px;
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+}
+
+ol {
+  list-style-type: none;
+}
+
+li {
+  font-size: 22px;
+  margin-bottom: 15px;
+  padding-right: 40px;
+  text-align: center;
+}
+
+a {
+  color: #b52f4e
+}
+
+#name {
+  font-size: 65px;
+  color: white;
 }
 
 .landing {
   background-image: url('./images/cork-color.jpg');
-  width: 100%;
-  height: 807px;
+  width: 99%;
+  height: 795px;
   margin: 0;
   padding: 0;
+  border: #67192bba solid 7px;
 }
 
-#card-a {
+.card {
   color: white;
   border: #67192bba solid 7px;
   border-radius: 60px / 60px;  
@@ -24,43 +66,62 @@ h1 {
   background-color: #330d14ba;
   width: 50%;
   position: relative;
-  top: 80px;
+  top: 420px;
   left: 360px;
 }
 
-#card-b {
+.home {
   color: white;
-  border: #67192bba solid 7px;
-  border-radius: 60px / 60px;  
-  text-align: center;
+  font-size: 20px;
+  position: relative;
+  left: 520px;
+  top: 430px;
   background-color: #330d14ba;
-  width: 50%;
-  position: relative;
-  top: 200px;
-  left: 360px;
-}
-
-#or {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: 10px;
-  position: relative;
-  top: 140px;
-  background-color: #501422;
+  height: 44px;
+  width: 400px;
+  margin: 10px;
+  border-radius: 10px / 15px;
+  border: 4px solid #67192bba;
+  background-size: cover;
+  font-family: 'Cinzel', serif;
 }
 
 .slide {
   height: 450px;
 }
 
+.slide-large {
+  height: 600px;
+}
+
 .inner {
   border: solid #333333 2px;
-  margin-left: 140px;
-  margin-right: 140px;
+  margin-left: 35px;
+  margin-right: 30px;
+  padding: 30px;
+  height: 280px;
+  width: 750px;
+  border-radius: 20px / 15px;
+}
+
+.inner-slide {
+  border: solid #333333 2px;
+  margin-left: 85px;
   padding: 30px;
   height: 270px;
-  width: 600px;
+  width: 650px;
+  background-color: #ffffff47;
+  border-radius: 20px / 15px;
+}
+
+.inner-slide-large {
+  border: solid #333333 2px;
+  margin-left: 85px;
+  padding: 30px;
+  height: 370px;
+  width: 650px;
+  background-color: #ffffff47;
+  border-radius: 20px / 15px;
 }
 
 .container {
@@ -76,9 +137,10 @@ h1 {
 }
 
 .description {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   width:400px;
+  text-align: left;
 }
 
 .input {
@@ -86,7 +148,7 @@ h1 {
   width: 40%;
   margin: 10px;
   border-radius: 20px / 15px;
-  padding: 10px;
+  padding: 5px;
 }
 
 input:focus {
@@ -104,9 +166,94 @@ button:focus {
 .go {
   color: white;
   height: 34px;
-  width: 23%;
+  width: 25%;
   margin: 10px;
   border-radius: 10px / 15px;
   background-color: #bd9356;
   border: 2px solid white;
+  background-size: cover;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+}
+
+.name {
+  color: white;
+  position: absolute;
+  right: 20px;
+}
+
+.title {
+  font-size: 35px;
+}
+
+.result {
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  background-color: #ffffffbd;
+  height: 740px;
+  border-radius: 20px / 15px;
+}
+
+.nav {
+  position: absolute;
+  bottom: 720px;
+  left: 710px;
+  width: 20%;
+  margin-bottom: 15px;
+}
+
+.thumb {
+  margin: 15px;
+}
+
+.left {
+  width: 35%;
+}
+
+.right {
+  width: 65%;
+  margin-right: 40px;
+}
+
+.wine-left {
+  width: 40%;
+}
+
+.wine-right {
+  width: 60%;
+  margin-right: 40px;
+}
+
+.add-space-above {
+  margin-top: 20px;
+}
+
+.back {
+  position: absolute;
+  bottom: 740px;
+  left: 1000px;
+  width: 10%;
+}
+
+.picks-left {
+  width: 60%;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.picks-right {
+  width: 30%;
+}
+
+.left-rec {
+width: 60%;
+padding-right: 20px;
+margin-right: 10px;
+}
+
+.right-rec {
+width: 30%;
+position: relative;
+bottom: 37px;
 }
