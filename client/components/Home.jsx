@@ -36,9 +36,9 @@ export default class Home extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect === 'getWine') {
-            return <Redirect to={{ pathname: '/wines', state: this.state }} />
+            return <Redirect push to={{ pathname: '/wines', state: this.state }} />
         } else if (this.state.redirect === 'changeQuestion') {
-            return <Redirect to={{ pathname: '/wineHome', state: this.state }} />
+            return <Redirect push to={{ pathname: '/wineHome', state: this.state }} />
         }
     }
 

@@ -49,7 +49,7 @@ export default class getDishes extends React.Component {
 
     renderRedirect = () => {
         return this.state.redirect && (
-            <Redirect to='/wineHome' />
+            <Redirect push to='/wineHome' />
         )
     }
 

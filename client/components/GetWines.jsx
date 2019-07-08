@@ -40,9 +40,9 @@ export default class Home extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect === 'home') {
-            return <Redirect to={{ pathname: '/Wine-Me-Up', state: { food: '', wines: null, redirect: false } }} />
+            return <Redirect push to={{ pathname: '/', state: { food: '', wines: null, redirect: false } }} />
         } else if (this.state.redirect === 'getWine') {
-            return <Redirect to={{ pathname: '/getWine', state: { options: this.state.options, wine: this.state.wine, food: this.state.food, wines: this.state.wines } }} />
+            return <Redirect push to={{ pathname: '/getWine', state: { options: this.state.options, wine: this.state.wine, food: this.state.food, wines: this.state.wines } }} />
         }
     }
 
@@ -93,7 +93,7 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
 
-                                <button onClick={this.handleClick} className='go nav'>Get another match !</button>
+                                <button onClick={this.handleClick} className='go nav'>Get another match</button>
 
                             </div>
                     </>

@@ -31,9 +31,9 @@ export default class GetWine extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect === 'getDishes') {
-            return <Redirect to={{ pathname: '/dishes', state: this.state }} />
+            return <Redirect push to={{ pathname: '/dishes', state: this.state }} />
         } else if (this.state.redirect === 'changeQuestion') {
-            return <Redirect to={{ pathname: '/Wine-Me-Up', state: this.state }} />
+            return <Redirect push to={{ pathname: '/', state: this.state }} />
         }
     }
 

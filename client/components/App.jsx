@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Home from './Home'
 import GetDishes from './GetDishes'
@@ -10,11 +10,13 @@ import WineQuestion from './WineQuestion'
 const App = () => {
   return (
     <>
-      <Route path="/Wine-Me-Up" exact component={Home} />
+    <Switch>
+      <Route path="/" exact component={Home} />
       <Route path="/wines" component={GetWines} />
       <Route path="/dishes" component={GetDishes} />
       <Route path="/getWine" component={GetWine} />
       <Route path="/wineHome" component={WineQuestion} />
+    </Switch>
     </>
     )
   }

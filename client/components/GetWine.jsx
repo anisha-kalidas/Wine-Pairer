@@ -27,7 +27,7 @@ export default class getWine extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to={{ pathname: '/wines', state: { food: this.state.food, wines: this.state.wines } }} />
+            return <Redirect push to={{ pathname: '/wines', state: { food: this.state.food, wines: this.state.wines } }} />
         }
     }
 
@@ -54,7 +54,7 @@ export default class getWine extends React.Component {
                                                 <p className='description'>{this.firstThreeSentences(options.recommendedWines[0].description)}.</p>
                                             </div>
                                             <div className='picks-right'>
-                                                <img src={options.recommendedWines[0].imageUrl} />
+                                                <img className='carousel-image' src={options.recommendedWines[0].imageUrl} />
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@ export default class getWine extends React.Component {
                                                 <p className='description'>{this.firstThreeSentences(options.recommendedWines[1].description)}.</p>
                                             </div>
                                             <div className='picks-right'>
-                                                <img src={options.recommendedWines[1].imageUrl} />
+                                                <img className='carousel-image' src={options.recommendedWines[1].imageUrl} />
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@ export default class getWine extends React.Component {
                                                 <p className='description'>{this.firstThreeSentences(options.recommendedWines[2].description)}.</p>
                                             </div>
                                             <div className='picks-right'>
-                                                <img src={options.recommendedWines[2].imageUrl} />
+                                                <img className='carousel-image'src={options.recommendedWines[2].imageUrl} />
                                             </div>
                                         </div>
                                     </div>
