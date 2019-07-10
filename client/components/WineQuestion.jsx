@@ -5,8 +5,8 @@ import { getDish } from '../api'
 export default class GetWine extends React.Component {
     state = {
         wine: null,
-        dishes: null,
-        redirect: ''
+        dishes: {},
+        redirect: null
     }
 
     handleChange = e => this.setState({ wine: e.target.value })
@@ -15,6 +15,9 @@ export default class GetWine extends React.Component {
         getDish(this.state.wine)
             .then(dishes => this.setState({ dishes }))
             .then(() => this.setState({ redirect: 'getDishes' }))
+            .catch(err => {
+                if (err) this.setState({redirect: 'failure'})
+            })
     }
 
     handleKeyPress = e => {
@@ -22,15 +25,18 @@ export default class GetWine extends React.Component {
             getDish(this.state.wine)
             .then(dishes => this.setState({ dishes }))
             .then(() => this.setState({ redirect: 'getDishes' }))
+            .catch(err => {
+                if (err) this.setState({redirect: 'failure'})
+            })
         }
     }
 
-    changeQuestion = () => {
-        this.setState({redirect: 'changeQuestion'})
-    }
+    changeQuestion = () => this.setState({redirect: 'changeQuestion'})
 
     renderRedirect = () => {
-        if (this.state.redirect === 'getDishes') {
+        if (this.state.redirect === 'failure') {
+            return <Redirect push to='/notFound' />
+        } else if (this.state.redirect === 'getDishes') {
             return <Redirect push to={{ pathname: '/dishes', state: this.state }} />
         } else if (this.state.redirect === 'changeQuestion') {
             return <Redirect push to={{ pathname: '/', state: this.state }} />

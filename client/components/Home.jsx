@@ -9,21 +9,13 @@ export default class Home extends React.Component {
         redirect: null
     }
 
-    componentWillUnmount() {
-  
-    }
-
-    handleChange = (event) => {
-        this.setState({ food: event.target.value })
-    }
+    handleChange = e => this.setState({ food: e.target.value })
 
     handleSubmit = () => {
         getWine(this.state.food)
             .then(wines => this.setState({ wines }))
             .then(() => this.setState({ redirect: 'getWine' }))
     }
-
-    handleClick = () => this.setState({ redirect: 'food' })
 
     handleKeyPress = e => {
         if (e.key === 'Enter') {
@@ -33,9 +25,7 @@ export default class Home extends React.Component {
         }
     }
 
-    changeQuestion = () => {
-        this.setState({ redirect: 'changeQuestion' })
-    }
+    changeQuestion = () => this.setState({ redirect: 'changeQuestion' })
 
     renderRedirect = () => {
         if (this.state.wines.status === 'failure') {

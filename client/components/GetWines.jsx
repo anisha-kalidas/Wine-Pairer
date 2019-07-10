@@ -83,7 +83,6 @@ export default class Home extends React.Component {
                                     <h2 className='carousel-title'>Our Recommendation</h2>
                                     <div className='inner container'>
                                         <div>
-                                            <br/>
                                             <h3>{this.state.wines.productMatches[0].title}</h3>
                                             <p className='add-space-above'>{this.firstThreeSentences(this.state.wines.productMatches[0].description)}.</p>
                                         </div>

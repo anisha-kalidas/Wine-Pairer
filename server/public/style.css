@@ -11,12 +11,13 @@ body {
 }
 
 h1 {
-  font-size: 4vw;
+  font-size: 3.5vw;
 }
 
 h2 {
-  font-size: 4vh;
+  font-size: 3vw;
   text-align: center;
+  margin-bottom: 1.5vw;
 }
 
 h3 {
@@ -26,7 +27,7 @@ h3 {
 }
 
 p {
-  font-size: 2.2vh;
+  font-size: 1.3vw;
 }
 
 ol {
@@ -34,7 +35,7 @@ ol {
 }
 
 li {
-  font-size: 2.8vh;
+  font-size: 1.6vw;
   margin-bottom: 2vh;
   padding-right: 2vw;
   text-align: center;
@@ -65,7 +66,7 @@ a:focus {
 .card {
   color: white;
   border: #67192bba solid 0.5vw;
-  border-radius: 60px / 60px;  
+  border-radius: 3vw / 3vw;  
   text-align: center;
   background-color: #330d14ba;
   width: 50%;
@@ -76,7 +77,7 @@ a:focus {
 
 .home {
   color: white;
-  font-size: 2.5vh;
+  font-size: 1.5vw;
   position: relative;
   left: 30vw;
   top: 42vh;
@@ -84,14 +85,14 @@ a:focus {
   height: 8vh;
   width: 39vw;
   margin: 1vh;
-  border-radius: 10px / 15px;
+  border-radius: 3.5vw / 5vw;
   border: 0.3vw solid #67192bba;
   background-size: cover;
   font-family: 'Cinzel', serif;
 }
 
 .slide {
-  height: 50vh;
+  height: 27vw;
 }
 
 .slide-large {
@@ -103,7 +104,7 @@ a:focus {
   margin-left: 2vw;
   margin-right: 1vw;
   padding: 2vw;
-  height: 34vh;
+  height: 33vh;
   width: 53vw;
   border-radius: 20px / 15px;
 }
@@ -112,7 +113,7 @@ a:focus {
   border: solid #333333 2px;
   margin-left: 6vw;
   padding: 0.5vw;
-  height: 35vh;
+  height: 22vw;
   width: 47vw;
   background-color: #ffffff47;
   border-radius: 20px / 15px;
@@ -133,11 +134,14 @@ a:focus {
 }
 
 .carousel-title {
-  text-align: center
+  text-align: center;
+  font-size: 2.5vw;
+  margin-top: 1vw;
 }
 
 .text {
   text-align: center;
+  font-size: 2vw;
 }
 
 .description {
@@ -148,11 +152,14 @@ a:focus {
 }
 
 .input {
-  height: 5vh;
+  height: 3vw;
   width: 20vw;
   margin: 1vw;
   border-radius: 20px / 15px;
   padding: 0.2vw;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9vw;
+  text-align: center;
 }
 
 input:focus {
@@ -169,14 +176,14 @@ button:focus {
 
 .go {
   color: white;
-  height: 5vh;
+  height: 3vw;
   width: 19vh;
   margin: 1vw;
   border-radius: 10px / 15px;
   background-color: #bd9356;
   border: 2px solid white;
   font-family: 'Cinzel', serif;
-  font-size: 2vh;
+  font-size: 1.15vw;
 }
 
 .name {
@@ -186,7 +193,7 @@ button:focus {
 }
 
 .title {
-  font-size: 5vh;
+  font-size: 2.5vw;
 }
 
 .result {
@@ -194,13 +201,13 @@ button:focus {
   position: relative;
   top: 2vh;
   background-color: #ffffffbd;
-  height: 87vh;
+  height: 88.5vh;
   border-radius: 20px / 15px;
 }
 
 .nav {
   position: absolute;
-  bottom: 86vh;
+  bottom: 85vh;
   left: 49vw;
   width: 13vw;
   margin-bottom: 15px;
@@ -208,8 +215,11 @@ button:focus {
 }
 
 .thumb {
-  margin: 2vw;
-  height: 25vh;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  margin-right: 2vw;
+  margin-bottom: 0;
+  height: 15vw;
 }
 
 .left {
@@ -232,11 +242,12 @@ button:focus {
 
 .add-space-above {
   margin-top: 2vh;
+  margin-bottom: 1vw;
 }
 
 .back {
   position: absolute;
-  bottom: 87vh;
+  bottom: 89vh;
   left: 69vw;
   width: 10%;
 }
@@ -250,7 +261,7 @@ button:focus {
 }
 
 .carousel-image {
-  height: 15vw;
+  height: 12vw;
 }
 
 .left-rec {
@@ -281,7 +292,7 @@ bottom: 37px;
 
 .retry {
   color: white;
-  font-size: 2.5vh;
+  font-size: 1.7vw;
   position: relative;
   left: 17vw;
   background-color: #330d14ba;
