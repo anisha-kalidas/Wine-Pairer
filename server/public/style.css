@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  font-size: 6vh;
+  font-size: 4vw;
 }
 
 h2 {
@@ -264,3 +264,83 @@ width: 30%;
 position: relative;
 bottom: 37px;
 }
+
+.svg {
+  fill: none;
+  stroke: #8f1f1fd8;
+  stroke-miterlimit: 10;
+  stroke-width: 5px;
+  height: 45vh;
+  margin-left: 27vw;
+}
+
+.sorry {
+  text-align: center;
+  color: #67192bba;
+}
+
+.retry {
+  color: white;
+  font-size: 2.5vh;
+  position: relative;
+  left: 17vw;
+  background-color: #330d14ba;
+  height: 6vh;
+  width: 22vw;
+  margin: 4vh;
+  border-radius: 10px / 15px;
+  border: 0.3vw solid #67192bba;
+  background-size: cover;
+  font-family: 'Cinzel', serif;
+}
+
+.FYLEWBOQ_0 {
+  stroke-dasharray: 3523 3525;
+  stroke-dashoffset:3524;
+  animation:FYLEWBOQ_draw 2000ms ease-out 0ms forwards;
+}
+
+.FYLEWBOQ_0 {
+  stroke-dasharray: 0 2;
+  stroke-dashoffset:1;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+.FYLEWBOQ_1 {
+  stroke-dasharray: 145 147;
+  stroke-dashoffset:146;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+.FYLEWBOQ_2 {
+  stroke-dasharray: 1176 1178;
+  stroke-dashoffset:1177;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+.FYLEWBOQ_3 {
+  stroke-dasharray: 90 92;
+  stroke-dashoffset:91;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+.FYLEWBOQ_4 {
+  stroke-dasharray: 95 97;
+  stroke-dashoffset:96;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+.FYLEWBOQ_5 {stroke-dasharray: 138 140;
+  stroke-dashoffset:139;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+.FYLEWBOQ_6 {
+  stroke-dasharray: 138 140;
+  stroke-dashoffset:139;
+  animation:FYLEWBOQ_draw 2000ms ease-out 100ms forwards;
+}
+
+@keyframes FYLEWBOQ_draw{100% { stroke-dashoffset: 0;}}
+@keyframes FYLEWBOQ_fade{0% { stroke-opacity: 1;}94.44444444444444%{stroke-opacity: 1;}100%{stroke-opacity: 0;}}
+

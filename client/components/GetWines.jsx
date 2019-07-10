@@ -43,7 +43,7 @@ export default class Home extends React.Component {
             return <Redirect push to={{ pathname: '/', state: { food: '', wines: null, redirect: false } }} />
         } else if (this.state.redirect === 'getWine') {
             return <Redirect push to={{ pathname: '/getWine', state: { options: this.state.options, wine: this.state.wine, food: this.state.food, wines: this.state.wines } }} />
-        }
+        } 
     }
 
     firstThreeSentences = string => {

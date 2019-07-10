@@ -6,6 +6,7 @@ import GetDishes from './GetDishes'
 import GetWines from './GetWines'
 import GetWine from './GetWine'
 import WineQuestion from './WineQuestion'
+import ErrorPage from './ErrorPage'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/dishes" component={GetDishes} />
       <Route path="/getWine" component={GetWine} />
       <Route path="/wineHome" component={WineQuestion} />
+      <Route path="/notFound" component={ErrorPage} />
     </Switch>
     </>
     )

@@ -3,11 +3,14 @@ import { Redirect } from 'react-router-dom'
 import { getWine } from '../api'
 
 export default class Home extends React.Component {
-
     state = {
         food: null,
-        wines: null,
+        wines: {},
         redirect: null
+    }
+
+    componentWillUnmount() {
+  
     }
 
     handleChange = (event) => {
@@ -25,17 +28,19 @@ export default class Home extends React.Component {
     handleKeyPress = e => {
         if (e.key === 'Enter') {
             getWine(this.state.food)
-            .then(wines => this.setState({ wines }))
-            .then(() => this.setState({ redirect: 'getWine' }))
+                .then(wines => this.setState({ wines }))
+                .then(() => this.setState({ redirect: 'getWine' }))
         }
     }
 
     changeQuestion = () => {
-        this.setState({redirect: 'changeQuestion'})
+        this.setState({ redirect: 'changeQuestion' })
     }
 
     renderRedirect = () => {
-        if (this.state.redirect === 'getWine') {
+        if (this.state.wines.status === 'failure') {
+            return <Redirect push to='/notFound' />
+        } else if (this.state.redirect === 'getWine') {
             return <Redirect push to={{ pathname: '/wines', state: this.state }} />
         } else if (this.state.redirect === 'changeQuestion') {
             return <Redirect push to={{ pathname: '/wineHome', state: this.state }} />
@@ -58,14 +63,6 @@ export default class Home extends React.Component {
                 <div>
                     <button className='home' onClick={this.changeQuestion}>Get Wine Recommendation</button>
                 </div>
-                {/* <div id='or'>
-                </div>
-                <div id='card-b'>
-                    <h1>What's in your Cellar?</h1>
-                    <input className='input' placeholder='Enter wine, eg. Merlot' onChange={this.handleChangeWine} />
-                    <button className='go' onClick={this.handleSubmitWine}>Bring Me The Menu!</button>
-                    <br /><br /><br />
-                </div> */}
             </div>
 
         )
