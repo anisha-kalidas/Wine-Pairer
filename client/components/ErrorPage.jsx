@@ -12,7 +12,7 @@ export default class Error extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect === 'home') {
-            return <Redirect to='/'/>
+            return <Redirect push to='/'/>
         }
     }
 

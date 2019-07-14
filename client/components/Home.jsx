@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { getWine } from '../api'
+import { thisExpression } from '@babel/types';
 
 export default class Home extends React.Component {
     state = {
@@ -14,7 +15,13 @@ export default class Home extends React.Component {
     handleSubmit = () => {
         getWine(this.state.food)
             .then(wines => this.setState({ wines }))
-            .then(() => this.setState({ redirect: 'getWine' }))
+            .then(() => {
+                if (this.state.wines.status === 'failure') {
+                    this.setState({ redirect: 'failure'})
+                } else {
+                    this.setState({ redirect: 'getWine' })
+                }
+            })
     }
 
     handleKeyPress = e => {
@@ -28,7 +35,7 @@ export default class Home extends React.Component {
     changeQuestion = () => this.setState({ redirect: 'changeQuestion' })
 
     renderRedirect = () => {
-        if (this.state.wines.status === 'failure') {
+        if (this.state.redirect === 'failure') {
             return <Redirect push to='/notFound' />
         } else if (this.state.redirect === 'getWine') {
             return <Redirect push to={{ pathname: '/wines', state: this.state }} />
