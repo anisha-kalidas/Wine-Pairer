@@ -6,14 +6,10 @@ export default class Error extends React.Component {
         redirect: null
     }
 
-    handleClick = () => {
-        this.setState({ redirect: 'home' })
-    }
+    handleClick = () => this.setState({ redirect: 'home' })
 
     renderRedirect = () => {
-        if (this.state.redirect === 'home') {
-            return <Redirect push to='/'/>
-        }
+        if (this.state.redirect === 'home') { return <Redirect push to='/'/> }
     }
 
     render() {

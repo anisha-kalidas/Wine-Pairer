@@ -2,11 +2,12 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Home from './Home'
-import GetDishes from './GetDishes'
-import GetWines from './GetWines'
 import GetWine from './GetWine'
-import WineQuestion from './WineQuestion'
+import GetWines from './GetWines'
+import GetDishes from './GetDishes'
 import ErrorPage from './ErrorPage'
+import WineQuestion from './WineQuestion'
+
 
 const App = () => {
   return (
@@ -22,4 +23,5 @@ const App = () => {
     </>
     )
   }
+  
 export default App

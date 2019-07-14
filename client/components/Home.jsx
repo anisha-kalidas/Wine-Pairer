@@ -16,11 +16,8 @@ export default class Home extends React.Component {
         getWine(this.state.food)
             .then(wines => this.setState({ wines }))
             .then(() => {
-                if (this.state.wines.status === 'failure') {
-                    this.setState({ redirect: 'failure'})
-                } else {
-                    this.setState({ redirect: 'getWine' })
-                }
+                if (this.state.wines.status === 'failure') { this.setState({ redirect: 'failure'}) } 
+                else { this.setState({ redirect: 'getWine' }) }
             })
     }
 

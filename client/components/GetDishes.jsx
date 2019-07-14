@@ -12,18 +12,16 @@ export default class getDishes extends React.Component {
         redirect: ''
     }
 
-    capitalise = (word) => {
+    capitalise = word => {
         return word.charAt(0).toUpperCase() + word.slice(1);
     }
 
-    capitaliseArray = (arr) => {
+    capitaliseArray = arr => {
         let transformed = arr.map(word => this.capitalise(word))
         return transformed.join(' ')
     }
 
-    handleChange = (event) => {
-        this.setState({ wine: event.target.value })
-    }
+    handleChange = e => this.setState({ wine: e.target.value })
 
     handleSubmit = () => {
         getDish(this.state.wine)
@@ -41,19 +39,17 @@ export default class getDishes extends React.Component {
 
     handleHome = () => this.setState({ redirect: 'home' })
 
-    firstThreeSentences = string => {
+    firstTwoSentences = string => {
         let splitString = string.split('.')
         let newString = [splitString[0], splitString[1]]
         return newString.join('.')
     }
 
     renderRedirect = () => {
-        return this.state.redirect && (
-            <Redirect push to='/wineHome' />
-        )
+        return this.state.redirect && <Redirect push to='/wineHome' />
     }
 
-    render() {
+    render () {
         const { wine, dishes, options } = this.state
         return (
             <>
@@ -65,7 +61,7 @@ export default class getDishes extends React.Component {
                         </div>
                         <div className='container'>
                             <div className='wine-left'>
-                                <ol>
+                                <ol> 
                                     <li key={'a'}>{this.capitaliseArray(dishes.pairings[0].split(' '))}</li>
                                     <li key={'b'}>{this.capitaliseArray(dishes.pairings[1].split(' '))}</li>
                                     <li key={'c'}>{this.capitaliseArray(dishes.pairings[2].split(' '))}</li>
@@ -91,7 +87,7 @@ export default class getDishes extends React.Component {
                                                 </div>
                                                 <div className='container'>
                                                 <div className='left-rec'>
-                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[0].description)}.</p>
+                                                <p className='description'>{this.firstTwoSentences(options.recommendedWines[0].description)}.</p>
                                             </div>
                                             <div className='right-rec'>
                                                 <img className='thumb' src={options.recommendedWines[0].imageUrl} />
@@ -106,7 +102,7 @@ export default class getDishes extends React.Component {
                                                 </div>
                                                 <div className='container'>
                                                 <div className='left-rec'>
-                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[1].description)}.</p>
+                                                <p className='description'>{this.firstTwoSentences(options.recommendedWines[1].description)}.</p>
                                             </div>
                                             <div className='right-rec'>
                                                 <img className='thumb' src={options.recommendedWines[1].imageUrl} />
@@ -121,7 +117,7 @@ export default class getDishes extends React.Component {
                                                 </div>
                                                 <div className='container'>
                                                 <div className='left-rec'>
-                                                <p className='description'>{this.firstThreeSentences(options.recommendedWines[2].description)}.</p>
+                                                <p className='description'>{this.firstTwoSentences(options.recommendedWines[2].description)}.</p>
                                             </div>
                                             <div className='right-rec'>
                                                 <img className='thumb' src={options.recommendedWines[2].imageUrl} />

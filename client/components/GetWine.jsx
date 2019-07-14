@@ -11,13 +11,9 @@ export default class getWine extends React.Component {
         redirect: false
     }
 
-    capitalise = (word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-    }
+    capitalise = word => word.charAt(0).toUpperCase() + word.slice(1)
 
-    handleClick = () => {
-        this.setState({ redirect: true })
-    }
+    handleClick = () => this.setState({ redirect: true })
 
     firstThreeSentences = string => {
         let splitString = string.split('.')

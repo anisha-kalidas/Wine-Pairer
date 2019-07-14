@@ -12,9 +12,7 @@ export default class Home extends React.Component {
         options: null
     }
 
-    capitalise = (word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-    }
+    capitalise = word => word.charAt(0).toUpperCase() + word.slice(1)
 
     capitaliseArray = (arr) => {
         let transformed = arr.map(word => this.capitalise(word))
@@ -28,9 +26,7 @@ export default class Home extends React.Component {
         return splitString.join('. ')
     }
 
-    handleClick = () => {
-        this.setState({ redirect: 'home' })
-    }
+    handleClick = () => this.setState({ redirect: 'home' })
 
     handleLink = (e) => {
         const wine = e.target.id
